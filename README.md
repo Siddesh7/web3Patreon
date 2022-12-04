@@ -1,3 +1,11 @@
+# WEB3PATREON :
+Premium access for content
+
+# Tech Stack :
+React, Solidity, JavaScript
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
