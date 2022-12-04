@@ -1,10 +1,12 @@
 # WEB3PATREON :
 Premium access for content
 
+# About the Project:
+Enables the creator to allow content access to users. Users can get free-content available. However for the premium content they need to subscribe. The subscriptions will be token Gated(BOB). The payments done are implemented using zkBob to keep the user-identity as well as the transactions anonymous. The content is stored on IPFS/Filecoin, whereas the premium content is intended to be stored using Lighthouse SDK.
+
+
 # Tech Stack :
-React, Solidity, JavaScript
-
-
+React, Solidity, JavaScript, Insomnia 
 
 # Getting Started with Create React App
 
