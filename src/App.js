@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { WagmiConfig, createClient } from "wagmi";
+import { ConnectKitProvider, getDefaultClient } from "connectkit";
+import { ChakraProvider } from "@chakra-ui/react";
+import Hero from "./components/Hero";
+import ChannelFeed from "./pages/authorPage";
+import { chain } from "wagmi";
+const alchemyId = process.env.ALCHEMY_ID;
+const chains = [chain.polygonMumbai];
+const client = createClient(
+  getDefaultClient({
+    appName: "Your App Name",
+    alchemyId,
+    chains,
+  })
+);
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WagmiConfig client={client}>
+      <ChakraProvider>
+        <ConnectKitProvider>
+          <Navbar />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Hero />}></Route>
+              <Route path="/:author" element={<ChannelFeed />}></Route>
+            </Routes>
+          </BrowserRouter>
+        </ConnectKitProvider>
+      </ChakraProvider>
+    </WagmiConfig>
   );
-}
+};
 
 export default App;
